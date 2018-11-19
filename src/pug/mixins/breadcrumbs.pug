@@ -1,0 +1,56 @@
+//-
+	@param {Object.<[{href: String, text: String, title: String}]>} items – contains breadcrumbs links.
+	@param {string} items[].href - The URL links.
+	@param {string} items[].text - The Lnk content.
+	@param {string} [items[].title='Перейти на страницу: ' + items[].text] - The link title. Optional item.
+			If not, then default value is displayed.
+			The last item in the list has no title.
+
+	@example
+
+	```
+	+breadcrumbs([
+		{
+			href: 'index.html',
+			text: 'Home',
+			title: 'A custom title for link'
+		},
+		{
+			href: 'page.html',
+			text: 'The current page'
+		}
+	])
+	```
+mixin breadcrumbs(items)
+	div.breadcrumbs
+		ol.beadcrumb__list(
+			itemscope
+			itemtype="http://schema.org/BreadcrumbList"
+		)&attributes(attributes)
+			each item, index in items
+				li.breadcrumbs__item(
+					itemprop="itemListElement"
+					itemscope
+					itemtype="http://schema.org/ListItem"
+				)
+					- var last_index = items.length - 1
+					- var next_index = index + 1
+					- var tmp_index = items.length - next_index
+					- var content = items.length - tmp_index
+
+					if(last_index !== index)
+						a.breadcrumbs__link(
+							href=item.href
+							title=(item.title) ? item.title : 'Перейти на страницу: ' + item.text
+							itemprop="item"
+						)
+							span.breadcrumbs__text(itemprop="name")
+								| #{item.text}
+
+						meta(itemprop="position" content=content)
+					else
+						link(href=item.href itemprop="item")
+						span.breadcrumbs__link.breadcrumbs__link--current(itemprop="name")
+							| #{item.text}
+
+						meta(itemprop="position" content=content)
