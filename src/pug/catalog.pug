@@ -1,0 +1,51 @@
+section.catalog
+	h2.catalog__title.visually-hidden
+		| Каталог товаров
+
+	ul.catalog__list
+		li.catalog__item
+			+card({
+				a: {
+					href: 'product.html'
+				},
+				img: {
+					src: ''
+				},
+				header: 'Любительская селфи-палка',
+				price: '500 ₽'
+			})
+		li.catalog__item
+			+card({
+				a: {
+					href: 'product.html'
+				},
+				img: {
+					src: ''
+				},
+				header: 'Профессиональная селфи-палка ',
+				price: '1500 ₽'
+			})
+		li.catalog__item
+			+card({
+				a: {
+					href: 'product.html'
+				},
+				img: {
+					src: ''
+				},
+				header: 'Непотопляемая селфи-палка',
+				price: '500 ₽'
+			})
+		li.catalog__item
+			+card({
+				a: {
+					href: 'product.html'
+				},
+				img: {
+					src: ''
+				},
+				header: 'Селфи-палка «Следуй за мной»',
+				price: '4900 ₽'
+			})
+
+	//- +pagination({1: 'первую', 2: 'вторую', 3: 'третью', 4: 'четвёртую'}, 2)

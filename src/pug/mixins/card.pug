@@ -1,0 +1,83 @@
+//-
+	@param {Object[]} options - Contains options of product card.
+	@param {string} options[].a.href - The URL of product page.
+	@param {string} [options[].a.title=] - The URL title.
+	@param {string} [options[].img.src=] - The path to a image.
+	@param {string} [options[].img.alt=] - The alternative text for a image.
+	@param {string} [options.img.width=220] - The width of a image.
+	@param {string} [options.img.height=165] - The height of a image.
+	@param {string} options.header - The name of a product.
+	@param {string} options.price - The cost of a product.
+
+	@example
+
+	```
+	+card({
+		a: {
+			href: '',
+			title: ''
+		},
+		img: {
+			src: '',
+			alt: '',
+			width: '',
+			height: ''
+		},
+		header: '',
+		price: ''
+	})
+	```
+
+mixin card(options)
+	article.card&attributes(attributes)
+		- var title = (options.a.title) ? options.a.title : 'Перейти на страницу товара: ' + options.header.category + ' ' + options.header.brand
+		- var width = (options.img.width) ? options.img.width : 220
+		- var height = (options.img.height) ? options.img.height : 165
+		- var src = (options.img.src) ? options.img.src : 'https://via.placeholder.com/' + width + 'x' + height
+		- var alt = (options.img.alt) ? options.img.alt : 'Фотография товара: ' + options.header.category + ' ' + options.header.brand
+
+		h3.card__header
+			a.card__link(
+				href=options.a.href
+				title=title
+			)
+				| #{options.header}
+		|
+		|
+		if(options.price)
+			b.card__price.card__price--currency
+				| #{options.price}
+
+		p.card__img-wrap
+			img.card__img(
+				src=src
+				alt=alt
+				width=width
+				height=height
+			)
+
+		p.card__buttons
+			if(options.price)
+				a.card__button(
+					href="#"
+					title="Положить товар в корзину"
+				)
+					| В корзину
+				|
+				|
+			else
+				b.card__price
+					| Нет в наличии
+				|
+				|
+				a.card__button.card__button--disable(
+					href="#"
+					title="Положить товар в корзину"
+				)
+					| Купить
+
+			a.card__compare(
+				href="#"
+				title="Добавить товар к сравнению"
+			)
+				| Добавить к сравнению

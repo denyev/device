@@ -1,0 +1,35 @@
+extends pug/base
+
+append vars
+	- page = 'catalog'
+	- title = 'Моноподы для селфи | Barbershop'
+
+block content
+	include pug/header
+	main.main
+		h1.main__title
+			| Моноподы для селфи
+
+		+breadcrumbs([
+			{
+				href: 'index.html',
+				text: 'Главная'
+			},
+			{
+				href: 'catalog.html',
+				text: 'Магазин'
+			},
+			{
+				href: 'catalog.html#monopod',
+				text: 'Моноподы для селфи'
+			}
+		])
+
+		include pug/catalog
+
+		section.filters
+			h2.filtres__title
+				| Фильтр товаров
+			// Форма с фильтром товаров
+
+		include pug/footer
