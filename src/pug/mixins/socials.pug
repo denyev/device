@@ -1,0 +1,34 @@
+//-
+	@param {Object[]} items - The social network list.
+	@param {string} items[].class - The class to display a icon.
+	@param {string} items[].href - The social network link.
+	@param {string} items[].name - The social network name.
+	@param {string} [items[].title='Подпишитесь на нас в ' + item.name] - The title of link on social network.
+
+	@example
+
+	```
+	+socials([
+		{
+			class: 'socials__link--fb',
+			href: '//fb.com/our-awesome-group',
+			name: 'Facebook',
+			title: 'Follow us on social media'
+		}
+	])
+	```
+
+mixin socials(items)
+	div.socials&attributes(attributes)
+		ul.socials__list
+			each item in items
+				li.socials__item
+					a.socials__link(
+						class=item.class
+						href=item.href
+						title=(item.title) ? item.title : 'Подпишитесь на нас в социальной сети ' + item.name
+						target="_blank"
+						rel="nofollow noopener noreferrer"
+					)
+						span.visually-hidden
+							| #{item.name}

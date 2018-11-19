@@ -1,0 +1,40 @@
+extends pug/base
+
+append vars
+	- page = 'index'
+
+block content
+	include pug/header
+
+	main.main
+		section.main__info
+			h2.visually-hidden
+				| Информация о компании
+			div.about
+				h2.about__title
+					| О нас
+			p
+				| Огромный выбор гаджетов не оставит равнодушным гика, который есть в каждом из нас.
+
+			p
+				| Мы можем доставить ваш товар в самые отдаленные точки России! DEVICE работает со многими транспортными компаниями
+			ul
+				li
+					| Деловые Линии
+				li
+					| Автотрейдинг
+				li
+					| ЖелДорЭкспедиция
+				button.about__button
+					| Подробнее о нас
+
+			div.contacts
+				h2.contacts__title
+					| Контакты
+				p
+					| Вы можете забрать товар сами, заехав в наш офис. Заодно, вы сможете проверить работоспособность покупки. Всякое бывает.
+				div.contacts__map
+				button.contacts__button
+					| Напишите нам
+
+	include pug/footer

@@ -1,0 +1,34 @@
+header.main-header
+	div.main-header__wrap
+		div.main-header__top
+			div.main-header__left
+				div.logo
+					a.lodo__link(
+						href=(page !== 'index') ? 'index.html' : null
+						title="Логотип компании Device"
+					)
+						| Device
+				div.search
+					// Форма поиска
+			div.main-header__right
+				ul.account-menu
+					li.account-menu__item
+						a.account-menu__link.account-menu__link--login(
+							href="#"
+							title="Войти в личный кабинет"
+						)
+							| Войти
+					li.account-menu__item
+						a.account-menu__link.account-menu__link--compare(
+							href="#"
+							title="Перейти на страницу сравнения товаров"
+						)
+							| Сравнить
+					li.account-menu__item
+						a.account-menu__link.account-menu__link--cart(
+							href="#"
+							title="Перейти в корзину"
+						)
+							| Корзина
+
+		include main-navigation

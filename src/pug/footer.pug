@@ -1,0 +1,89 @@
+footer.main-footer
+	div.main-footer__wrap
+		div.main-footer__left
+			div.logo.logo--footer
+				a.lodo__link(
+					href=(page !== 'index') ? 'index.html' : null
+					title="Логотип компании Device"
+				)
+					| Device
+			p.main-footer__address
+				| г. Москва, ул. Строителей, 15
+
+		div.main-footer__center
+			ul.menu.menu--footer
+				li.menu__item
+					a.catalog-menu__link(
+					href="#"
+					title="Перейти на страницу: Доставка"
+					)
+						| Доставка
+				li.menu__item
+					a.catalog-menu__link(
+					href="#"
+					title="Перейти на страницу: Гарантия"
+					)
+						| Гарантия
+				li.menu__item
+					a.catalog-menu__link(
+					href="#"
+					title="Перейти на страницу: Контакты"
+					)
+						| Контакты
+
+			+socials([
+				{
+					class: 'socials__link--vk',
+					href: '//vk.com',
+					name: 'Вконтакте'
+				},
+				{
+					class: 'socials__link--fb',
+					href: '//fb.com',
+					name: 'Facebook'
+				},
+				{
+					class: 'socials__link--inst',
+					href: '//instagram.com',
+					name: 'Instagram'
+				}
+			])
+
+		div.main-footer__right
+			ul.account-menu.account-menu--footer
+				li.account-menu__item
+					a.account-menu__link.account-menu__link--login(
+						href="#"
+						title="Войти в личный кабинет"
+					)
+						| Войти
+				li.account-menu__item
+					a.account-menu__link.account-menu__link--compare(
+						href="#"
+						title="Перейти на страницу сравнения товаров"
+					)
+						| Сравнить
+				li.account-menu__item
+					a.account-menu__link.account-menu__link--cart(
+						href="#"
+						title="Перейти в корзину"
+					)
+						| Корзина
+
+			p.main-footer__phone
+				| Тел.:
+				a(
+					href="tel:+74954959595"
+					title="Позвоните нам!"
+				)
+					| +7 (495) 495-95-95
+
+			div.designed
+				a.designed__link(
+					href="//htmlacademy.ru/intensive/htmlcss"
+					title="Разработано в htmlacademy.ru"
+					target="_blank"
+					rel="nofollow noopener noreferrer"
+				)
+					span.visually-hidden
+						| HTML Academy
